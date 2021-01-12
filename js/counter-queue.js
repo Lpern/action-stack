@@ -14,7 +14,7 @@ class counterQueue{
                 console.log(JSON.stringify(this.options));
             }
         );*/
-        console.log(this.queue);
+        //console.log(this.queue);
         this.options = {
             "maxQueueLength":5, // maximum size of VISIBLE queue
             "waitTillAction":5, // delay until action applies (in seconds)
@@ -45,12 +45,12 @@ class counterQueue{
 
     queueTick()
     {
-        console.log("----------------------------");
-        console.log("STATUS: "+this.current);
+        //console.log("----------------------------");
+        //console.log("STATUS: "+this.current);
         if(Array.isArray(this.queue) && this.queue.length >= 1)
         {
             var top = this.queue.pop();
-            console.log("claiment: "+top.claiment+" action: "+top.action);
+            //console.log("claiment: "+top.claiment+" action: "+top.action);
             if(top.action != this.options.reversalAction)
             {
                 if(this.reverse < 1 || (this.reverse >= 2 && this.reverse % 2 == 0))
@@ -72,7 +72,7 @@ class counterQueue{
                     $("#reverse-card").hide(50);
                     this.reverse = 0;
                 }
-                console.log("current: "+this.current+" flip: "+this.reverse);
+                //console.log("current: "+this.current+" flip: "+this.reverse);
                 this.updateGUI();
                 
                 //setTimeout(this.queueTick(),10000); 
@@ -85,7 +85,7 @@ class counterQueue{
                 $("#reverse-card").hide(3000);
 
                 this.updateGUI();
-                console.log("current: "+this.current+" flip: "+this.reverse);
+                //console.log("current: "+this.current+" flip: "+this.reverse);
                 //setTimeout(this.queueTick(),3000); 
                 return;
             }
