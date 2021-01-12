@@ -58,10 +58,10 @@
 $(document).ready(() => {
   vtqueue = new counterQueue();
   vtqueue.startQueueTick();
-  setTimeout(vtqueue.queueAdd("johnProdman","activate"),1000);
+  setTimeout(vtqueue.queueAdd("josh","activate"),1000);
   setTimeout(vtqueue.queueAdd("tom","deactivate"),1500);
-  setTimeout(vtqueue.queueAdd("johnNoman","activate"),10000);
-  setTimeout(vtqueue.queueAdd("johnProdman","activate"),1800);
-  setTimeout(vtqueue.queueAdd("johnProdman","reverse"),8000);
+  setTimeout(vtqueue.queueAdd("bob","activate"),10000);
+  setTimeout(vtqueue.queueAdd("lary","activate"),1800);
+  setTimeout(vtqueue.queueAdd("johnProdman","reverse"),20000);
 });
 </script>

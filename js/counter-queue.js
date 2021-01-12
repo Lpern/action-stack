@@ -31,7 +31,15 @@ class counterQueue{
 
     startQueueTick()
     {
-        //this.queue = [{"claiment":"queue start", "action":"deactivate"}];
+        /*
+        this.queue = [
+            {"claiment":"tom", "action":"deactivate"},
+            {"claiment":"bob", "action":"activate"},
+            {"claiment":"jack", "action":"activate"},
+            {"claiment":"mike", "action":"deactivate"},
+            {"claiment":"josh", "action":"deactivate"},
+        ];
+        */
         this.interval = setInterval(this.queueTick.bind(this),8000);
     }
 
@@ -60,8 +68,8 @@ class counterQueue{
                     if(top.action == this.options.negativeAction)
                         this.current = this.options.positiveTitle;
 
-                    $("#reverse-card").show();
-                    $("#reverse-card").hide(10000);
+                    $("#reverse-card").show(1000);
+                    $("#reverse-card").hide(50);
                     this.reverse = 0;
                 }
                 console.log("current: "+this.current+" flip: "+this.reverse);
@@ -92,11 +100,11 @@ class counterQueue{
         $("#vtguistack").empty();
         if(this.queue.length > 0)
         {
-            var lmnt;
-            for(lmnt of this.queue.reverse())
+            var i;
+            for(i = this.queue.length - 1; i > 0 ; i--)
             {
-                var clmnt = $("<td></td>").text(lmnt.claiment);
-                var actn = $("<td></td>").text(lmnt.action);
+                var clmnt = $("<td></td>").text(this.queue[i].claiment);
+                var actn = $("<td></td>").text(this.queue[i].action);
         
                 var row = $("<tr></tr>").append(clmnt,actn);
 
@@ -109,13 +117,19 @@ class counterQueue{
     queueAdd(claiment, action)
     {
         if(action == this.options.reversalAction)
+        {
             this.queue.push({"claiment":claiment, "action":this.options.reversalAction});
+        }
         else if(action == this.options.positiveAction)
+        {
             this.queue.unshift({"claiment":claiment, "action":this.options.positiveAction});
+        }
         else if(action == this.options.negativeAction)
+        {
             this.queue.unshift({"claiment":claiment, "action":this.options.negativeAction});
+        }
+        
         this.updateGUI();
-        console.log("guid");
         return;
     }
 }
