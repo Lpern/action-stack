@@ -1,0 +1,10 @@
+{
+    "maxQueueLength":5, // maximum size of VISIBLE queue
+    "waitTillAction":5, // delay until action applies (in seconds)
+    "positiveAction":"activate", // text to look for when triggering the positive action
+    "negativeAction":"deactivate", // text to look for when triggering the negative action
+    "reversalAction":"reverse", // text to look for when triggering the negation action
+    "positiveTitle":"V-Tube Time", // text to be displayed in the table for the positive action
+    "negativeTitle":"V-Tube Time Over", // text to be displayed in the table ...
+    "reversalTitle":"Magic Cylinder" // text to be displayed in the table ...
+}
