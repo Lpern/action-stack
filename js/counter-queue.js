@@ -16,8 +16,8 @@ class counterQueue{
         );*/
         //console.log(this.queue);
         this.options = {
-            "maxQueueLength":5, // maximum size of VISIBLE queue
-            "waitTillAction":5, // delay until action applies (in seconds)
+            "maxQueueLength":5, // maximum size of VISIBLE queue (NOT IMPLEMENTED)
+            "waitTillAction":8, // delay until action applies (in seconds)
             "positiveAction":"activate", // text to look for when triggering the positive action
             "negativeAction":"deactivate", // text to look for when triggering the negative action
             "reversalAction":"reverse", // text to look for when triggering the negation action
@@ -40,7 +40,7 @@ class counterQueue{
             {"claiment":"josh", "action":"deactivate"},
         ];
         */
-        this.interval = setInterval(this.queueTick.bind(this),8000);
+        this.interval = setInterval(this.queueTick.bind(this),(this.options.waitTillAction * 1000));
     }
 
     queueTick()
